@@ -1,0 +1,91 @@
+p {
+    color: #c29d6d;
+    margin: 0.5em 0;
+}
+
+b, a, h1, h2, h3, h4, h5, h6 {
+    color: #e6a75f;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+th {
+    background-color: #423e3e;
+    color: #c0c0c0;
+    text-align: center;
+    border: 1px solid #272727;
+}
+
+tr {
+    color: #B3B4B7;
+}
+
+table {
+    margin: 1em 0;
+    font-family: sans-serif;
+    border-collapse: collapse;
+    line-height: 1.6;
+}
+
+th, tr, td, table {
+    border: 1px solid #a2a9b1;
+}
+
+.heading {
+    border-bottom: 1px solid #505050;
+    text-align: center;
+    font-size: 132%;
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+    overflow: auto;
+    color: #e6a75f;
+    background-color: #211f1ded;
+
+}
+body {
+    font-family: sans-serif;
+    background-color: #1f1b1b;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+    margin-left: -20px;
+}
+
+
+ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #860609; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+.doublegrid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr)
+}
+
+
+.largedoublegrid {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .largedoublegrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+

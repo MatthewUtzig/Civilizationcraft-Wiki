@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Culture</title>
+</head>
+<body>
+    {{template "header"}}
+    <div class="largedoublegrid">
+        <div>
+        <h1>Culture</h1>
+            <p>Towns in CivCraft generate culture. As a town generates culture it will lay claim to the area around it,
+                kind of like country borders. The area around will be claimed as a "culture chunk" and will provide special benefits to towns.
+                Unlike normal town blocks, culture blocks are NOT protected and anybody can build/destroy and open chests in this area.
+                Towns can make buildings and wonders which increase the rate at which a town generates culture.
+                When you enter a town's culture borders you are notified that you have entered them and anybody in
+                that town will be notified that you have entered the borders as well.
+                This is to let you know whether a enemy or ally is coming in your direction.
+                Each civilization is given a color to distinguish their cultural borders from others. You can change your civ color.
+
+                When two town's cultural borders touch, one town's culture chunks may be taken over depending on which is generating
+                more culture than the other. Culture generates from the Town Hall/Capitol structures and a few others.
+                This means claiming town chunks will not increase your cultural influence. </p>
+        </div>
+        <div>
+            <img src="/images/culture.png" alt="Error loading image">
+            <p>Multiple Civilizations with clashing boarders. </p>
+        </div>
+    </div>
+
+    <h1>How Culture is Calculated</h1>
+    <div class="largedoublegrid">
+        <div>
+            <p>
+                Culture for towns is divided into levels. Each level requires a certain amount of culture before leveling up.
+                Each town has a "culture" counter which can be seen using the "/town info" command. When the town reaches the next level of culture, it will claim more chunks. Each culture level is defined by the number of chunks it claims from the nearest town block.
+                Below is a table showing the culture levels and how many culture chunks are rewarded for each. (chunk = 16x16 block area)
+
+
+            </p>
+        </div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th class="headersort" >Level</th>
+                    <th class="headersort" >Culture</th>
+                    <th class="headersort" >Radius</th>
+                    <th class="headersort" >Chunks</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>133</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>600</td>
+                    <td>10</td>
+                    <td>183</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>12000</td>
+                    <td>13</td>
+                    <td>313</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>24000</td>
+                    <td>15</td>
+                    <td>421</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>120000</td>
+                    <td>17</td>
+                    <td>545</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>300000</td>
+                    <td>19</td>
+                    <td>685</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>500000</td>
+                    <td>22</td>
+                    <td>925</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>1000000</td>
+                    <td>26</td>
+                    <td>1301</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>2000000</td>
+                    <td>32</td>
+                    <td>1985</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>3500000</td>
+                    <td>40</td>
+                    <td>3281</td>
+                </tr>
+                <tr>
+                    <td>Spawn</td>
+                    <td>Infinity</td>
+                    <td>50</td>
+                    <td>5101</td>
+                </tr>
+                </tbody>
+
+            </table>
+            <p>The equation for Chunks in a culture level is 2r<sup>2</sup> + 2r + 1, where "r" is the culture radius.</p>
+        </div>
+    </div>
+
+    div.
+
+    <h1>Culture Biome Bonuses</h1>
+    <p>Your town accumulates resources based on the culture it claims around it.
+        The more culture you claim, the more resources you generate.
+        The type and amount of resources you generate depends on the biome type of the chunk. Before building a town,
+        you can estimate the amount of resources a particular location will give you by using the '/town survey' command.
+        You will also see the results of a survey during the town-name confirmation message that you get when building a town.
+
+
+        The table below indicates which biomes give which bonuses. The bonuses from each chunk are small,
+        because a typical town will have hundreds of culture chunks. The output of particular chunks can be increased by
+        building certain Town Structures, Wonders, or Tile Improvements.
+    </p>
+
+    <table class="wikitable sortable jquery-tablesorter">
+
+        <thead><tr>
+            <th class="headerSort" >Biome</th>
+            <th class="headerSort" >Hammers</th>
+            <th class="headerSort" >Growth</th>
+            <th class="headerSort" >Happiness</th>
+            <th class="headerSort" >Beakers
+            </th></tr></thead><tbody>
+        <tr>
+            <td>Beach</td>
+            <td>0.25</td>
+            <td>1.5</td>
+            <td>0.06</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Birch Forest</td>
+            <td>1.5</td>
+            <td>0.75</td>
+            <td>0.025</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Birch Forest Hills</td>
+            <td>2</td>
+            <td>0.15</td>
+            <td>0.02</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Birch Forest Hills Mountains</td>
+            <td>1.5</td>
+            <td>1</td>
+            <td>0.02</td>
+            <td>1.0
+            </td></tr>
+        <tr>
+            <td>Birch Forest Mountains</td>
+            <td>2.5</td>
+            <td>0.5</td>
+            <td>0.01</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Cold Beach</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0.01</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Cold Taiga</td>
+            <td>1</td>
+            <td>0.25</td>
+            <td>0.02</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Cold Taiga Hills</td>
+            <td>2.5</td>
+            <td>0.15</td>
+            <td>0.02</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Cold Taiga Mountains</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Deep Ocean</td>
+            <td>0.5</td>
+            <td>0.25</td>
+            <td>0</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Desert</td>
+            <td>0.5</td>
+            <td>0.5</td>
+            <td>0.03</td>
+            <td>1.2
+            </td></tr>
+        <tr>
+            <td>Desert Hills</td>
+            <td>2</td>
+            <td>0.25</td>
+            <td>0.03</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Desert Mountains</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0.01</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Extreme Hills</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.15
+            </td></tr>
+        <tr>
+            <td>Extreme Hills Mountains</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Extreme Hills Plus</td>
+            <td>4.5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0
+            </td></tr>
+        <tr>
+            <td>Extreme Hills Plus Mountains</td>
+            <td>4.5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Flower Forest</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0.05</td>
+            <td>0.75
+            </td></tr>
+        <tr>
+            <td>Forest</td>
+            <td>1</td>
+            <td>1.25</td>
+            <td>0.025</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Forest Hills</td>
+            <td>2</td>
+            <td>0.25</td>
+            <td>0.03</td>
+            <td>1.2
+            </td></tr>
+        <tr>
+            <td>Frozen Ocean</td>
+            <td>0.25</td>
+            <td>0</td>
+            <td>0</td>
+            <td>3
+            </td></tr>
+        <tr>
+            <td>Frozen River</td>
+            <td>1.5</td>
+            <td>1.5</td>
+            <td>0.04</td>
+            <td>4.5
+            </td></tr>
+        <tr>
+            <td>Ice Mountains</td>
+            <td>2</td>
+            <td>0.25</td>
+            <td>0.02</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Ice Plains</td>
+            <td>0.75</td>
+            <td>0.5</td>
+            <td>0.02</td>
+            <td>1.35
+            </td></tr>
+        <tr>
+            <td>Ice Plains Spikes</td>
+            <td>0.25</td>
+            <td>0</td>
+            <td>0.015</td>
+            <td>3
+            </td></tr>
+        <tr>
+            <td>Jungle</td>
+            <td>1.5</td>
+            <td>1</td>
+            <td>0.02</td>
+            <td>1.25
+            </td></tr>
+        <tr>
+            <td>Jungle Edge</td>
+            <td>1.5</td>
+            <td>0.5</td>
+            <td>0.04</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Jungle Edge Mountains</td>
+            <td>2</td>
+            <td>0.25</td>
+            <td>0.01</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Jungle Hills</td>
+            <td>2</td>
+            <td>0.25</td>
+            <td>0.03</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Jungle Mountains</td>
+            <td>3</td>
+            <td>0.5</td>
+            <td>0</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Mesa Plateau Forest Mountains</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Mesa</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0.025</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Mesa Bryce</td>
+            <td>2</td>
+            <td>0.5</td>
+            <td>0.01</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Mesa Plateau</td>
+            <td>1.5</td>
+            <td>1</td>
+            <td>0.02</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Mesa Plateau Forest</td>
+            <td>2.5</td>
+            <td>0</td>
+            <td>0.02</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Mesa Plateau Mountains</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0.01</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Mega Spruce Taiga</td>
+            <td>2.5</td>
+            <td>0.25</td>
+            <td>0.01</td>
+            <td>0.25
+            </td></tr>
+        <tr>
+            <td>Mega Spruce Taiga Hills</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0.03</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Mega Taiga</td>
+            <td>1.5</td>
+            <td>0.25</td>
+            <td>0.02</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Mega Taiga Hills</td>
+            <td>3</td>
+            <td>0.1</td>
+            <td>0</td>
+            <td>0.1
+            </td></tr>
+        <tr>
+            <td>Mushroom Island</td>
+            <td>2</td>
+            <td>0.5</td>
+            <td>0.03</td>
+            <td>2
+            </td></tr>
+        <tr>
+            <td>Mushroom Shore</td>
+            <td>0.5</td>
+            <td>1.5</td>
+            <td>0.05</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Ocean</td>
+            <td>0.5</td>
+            <td>0.25</td>
+            <td>0.02</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Plains</td>
+            <td>1</td>
+            <td>3</td>
+            <td>0.035</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>River</td>
+            <td>2</td>
+            <td>6</td>
+            <td>0.0</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Roofed Forest</td>
+            <td>1.25</td>
+            <td>0.5</td>
+            <td>0.025</td>
+            <td>0.75
+            </td></tr>
+        <tr>
+            <td>Roofed Forest Mountains</td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Savanna</td>
+            <td>1.15</td>
+            <td>1.5</td>
+            <td>0.03</td>
+            <td>1.15
+            </td></tr>
+        <tr>
+            <td>Savanna Mountains</td>
+            <td>4</td>
+            <td>0.25</td>
+            <td>0.01</td>
+            <td>0.35
+            </td></tr>
+        <tr>
+            <td>Savanna Plateau</td>
+            <td>1.25</td>
+            <td>1.25</td>
+            <td>0.025</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Savanna Plateau Mountains</td>
+            <td>3.25</td>
+            <td>0.5</td>
+            <td>0</td>
+            <td>0
+            </td></tr>
+        <tr>
+            <td>Smaller Extreme Hills</td>
+            <td>2.5</td>
+            <td>0.5</td>
+            <td>0.015</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Stone Beach</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0.015</td>
+            <td>0.15
+            </td></tr>
+        <tr>
+            <td>Sunflower Plains</td>
+            <td>1.25</td>
+            <td>1.25</td>
+            <td>0.05</td>
+            <td>1.25
+            </td></tr>
+        <tr>
+            <td>Swampland</td>
+            <td>0.25</td>
+            <td>1</td>
+            <td>0.02</td>
+            <td>1.5
+            </td></tr>
+        <tr>
+            <td>Swampland Mountains</td>
+            <td>2.5</td>
+            <td>0.1</td>
+            <td>0.02</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Taiga</td>
+            <td>2</td>
+            <td>0.5</td>
+            <td>0.02</td>
+            <td>0.5
+            </td></tr>
+        <tr>
+            <td>Taiga Hills</td>
+            <td>2.75</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1
+            </td></tr>
+        <tr>
+            <td>Taiga Mountains</td>
+            <td>3.5</td>
+            <td>0</td>
+            <td>0.05</td>
+            <td>0</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

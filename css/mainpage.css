@@ -1,0 +1,36 @@
+
+.maingrid > div {
+    background-color: #292f36;
+    border: 1px solid #505050;
+    box-shadow: 0 2px 5px #505050;
+    padding: 5px;
+}
+
+.maingrid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr)
+}
+
+.box1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.box2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+@media screen and (max-width: 1300px) {
+    .maingrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 720px) {
+    .maingrid {
+     grid-template-columns: 1fr;
+    }
+}
+
+

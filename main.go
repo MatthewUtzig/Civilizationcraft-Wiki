@@ -13,10 +13,10 @@ const debug_mode bool = true;
 var tmpl *template.Template
 
 
-type TowerStrcture struct {
-	Structure
-	Tower
-}
+//type TowerStrcture struct {
+//	Structure
+//	Tower
+//}
 
 func main()  {
 	route := mux.NewRouter()

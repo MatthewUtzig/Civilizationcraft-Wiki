@@ -33,7 +33,7 @@ func main()  {
 	http.Handle("/", route)
 
 	fmt.Println("Starting server")
-	log.Fatalln(http.ListenAndServe(":8080", nil))
+	log.Fatalln(http.ListenAndServe(":80", nil))
 }
 
 

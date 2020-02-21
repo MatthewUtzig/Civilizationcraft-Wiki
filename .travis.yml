@@ -2,7 +2,7 @@ before_install:
   - docker build -t matthewutzig/civcraft-wiki -f Dockerfile .
 
 script:
-  - docker run matthewutzig/civcraft-wiki go test
+  - docker run matthewutzig/civcraft-wiki go run main.go
 
 deploy:
   provider: elasticbeanstalk

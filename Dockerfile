@@ -5,6 +5,5 @@ COPY . .
 RUN apk add build-base
 
 EXPOSE 80
-EXPOSE 443
 
 CMD ['go','run','main.go']

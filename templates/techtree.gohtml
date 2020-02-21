@@ -5,10 +5,255 @@
 
     <style type = text/css>
         .tech-tree-container {
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(15, 1fr);
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            grid-template-rows: repeat(22, 1fr););
+            grid-row-gap: 30px;
+            grid-column-gap: 10px;
+            height: 1px; /* Make everything squished together */
         }
 
+        @media screen and (max-width: 800px) {
+            .tech-tree-container {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .title {
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .title p {
+            font-size: 2em;
+        }
+
+        u {
+            font-size: 18px;
+        }
+
+        h5 {
+            color: #1f1b1b !important;
+            text-align: center;
+        }
+
+        .title-prehistoric {
+            background-color: darkgray;
+            grid-area: 1 / 6 / 2 / 9;
+        }
+
+        .title-ancient {
+            background-color: #b45f05;
+            grid-area: 7 / 6 / 8 / 9;
+        }
+
+        .title-classical {
+            background-color: #e69137;
+            grid-area: 10 / 6 / 11 / 9;
+        }
+
+        .title-medieval {
+            background-color: #f6b26b;
+            grid-area: 12 / 6 / 13 / 9;
+        }
+
+        .title-renaissance {
+            background-color: #b3d9a6;
+            grid-area: 12 / 6 / 13 / 9;
+        }
+
+        .title-industrial {
+            background-color: #37761d;
+            grid-area: 16 / 6 / 17 / 9;
+        }
+
+        .title-information {
+            background-color: #9fc5c8;
+            grid-area: 18 / 6 / 19 / 9;
+        }
+
+        .title-ai {
+            background-color: #4887e8;
+            grid-area: 21 / 6 / 22 / 9;
+        }
+
+        .tech {
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+
+        .ancient-tech {
+            background-color: #b45f05;
+        }
+
+        .classical-tech{
+            background-color: #e69137;
+        }
+
+        .medieval-tech {
+            background-color: #f6b26b;
+        }
+
+        .renaissance-tech {
+            background-color: #b3d9a6;
+        }
+
+        .industrial-tech {
+            background-color: #37761d;
+        }
+
+        .information-tech {
+            background-color: #9fc5c8;
+        }
+
+        .ai-tech {
+            background-color: #4887e8;
+        }
+
+        .tech-armory {
+            grid-area: 9 / 5 / 10 / 6;
+        }
+
+        .tech-advanced-agriculture {
+            grid-area: 8 / 5 / 9 / 6;
+        }
+
+        .tech-milling {
+            grid-area: 8 / 7 / 9 / 8;
+        }
+
+        .tech-mining {
+            grid-area: 9 / 7 / 10 / 8;
+        }
+
+        .tech-religion {
+            grid-area: 8 / 9 / 9 / 10;
+        }
+
+        .tech-written-laws {
+            grid-area: 9 / 9 / 10 / 10;
+        }
+
+        .tech-stonehenge {
+            grid-area: 8 / 3 / 10 / 4;
+        }
+
+        .tech-temple-of-artemis {
+            grid-area: 8 / 11 / 10 / 12;
+        }
+
+        .tech-early-agriculture {
+            grid-area: 2 / 7 / 3 / 8;
+        }
+        .tech-knapping {
+            grid-area: 3 / 4 / 4 / 5;
+        }
+
+        .tech-trading {
+            grid-area: 3 / 6 / 4 / 7;
+        }
+        .tech-herding {
+            grid-area: 3 / 8 / 4 / 9;
+        }
+        .tech-housing {
+            grid-area: 3 / 10 / 4 / 11;
+        }
+
+        .tech-iron-working {
+            grid-area: 4 / 4 / 5 / 5;
+        }
+        .tech-magic {
+            grid-area: 4 / 6 / 5 / 7;
+        }
+        .tech-sifting {
+            grid-area: 4 / 8 / 5 / 9;
+        }
+        .tech-early-distribution {
+            grid-area: 4 / 10 / 5 / 11;
+        }
+
+        .tech-diamond-working {
+            grid-area: 5 / 4 / 6 / 5;
+        }
+        .tech-enhancing {
+            grid-area: 5 / 6 / 6 / 7;
+        }
+        .tech-scouting {
+            grid-area: 5 / 8 / 6 / 9;
+        }
+        .tech-fortification {
+            grid-area: 5 / 10 / 6 / 11;
+        }
+
+        .tech-agriculture {
+            grid-area: 6 / 6 / 7 / 9;
+        }
+
+        .tech-archery {
+            grid-area: 11 / 3 / 12 / 4;
+        }
+
+        .tech-leather-reinforcement {
+            grid-area: 11 / 2 / 12 / 3;
+        }
+
+        .tech-blacksmithing {
+            grid-area: 11 / 4 / 12 / 5;
+        }
+
+        .tech-metal-casting {
+            grid-area: 11 / 5 / 12 / 6;
+        }
+
+        .tech-guerilla {
+            grid-area: 11 / 6 / 12 / 7;
+        }
+
+        .tech-masonry {
+            grid-area: 11 / 7 / 12 / 8;
+        }
+
+        .tech-productivity {
+            grid-area: 11 / 8 / 12 / 9;
+        }
+
+        .tech-pottery {
+            grid-area: 11 / 9 / 12 / 10;
+        }
+
+        .tech-hunting {
+            grid-area: 11 / 10 / 12 / 11;
+        }
+
+        .tech-code-of-laws {
+            grid-area: 11 / 11 / 12 / 12;
+        }
+
+        .tech-brewing {
+            grid-area: 11 / 12 / 12 / 13;
+        }
+
+        .wonder {
+            background-color: #ffd866;
+        }
+
+        b {
+            text-align: center;
+            color: #1f1b1b !important;
+        }
+
+        p {
+            text-align: center;
+            color: #1f1b1b !important;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: lightskyblue !important;
+        }
     </style>
 
     <meta charset="UTF-8">
@@ -19,88 +264,357 @@
 
 </head>
 <body>
+    {{template "header"}}
+    <div class="tech-tree-container">
         <!-- could use a loop for this, but I would rather have full control -->
         <!-- titles -->
         <div class="title title-prehistoric">
-            <b>Prehistoric Era | 10000 BC</b>
+            <p><b>Prehistoric Era | 10000 BC</b></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-early-agriculture">
+            <p><b><u>Early Agriculture</u></b></p>
+            <p>Camp</p>
+            <p>Stone Tools</p>
+            <p>Wood Sword</p>
+            <p>Leather Armor</p>
+            <p>Bow</p>
+            <p></p>
+            <p><h5>You start with it</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-knapping">
+            <p><b><u>Knapping</u></b></p>
+            <p>Iron Tools</p>
+            <p>Stone Sword</p>
+            <p>Stone Armor</p>
+            <p>Stone Reinforced Bow</p>
+            <p><b>Required Tech</b></p>
+            <p>Early Agriculture</p>
+            <p><h5>30 minutes</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-trading">
+            <p><b><u>Trading</u></b></p>
+            <p>Trader</p>
+            <p><b>Required Tech</b></p>
+            <p>Early Agriculture</p>
+            <p><h5>30 minutes</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-herding">
+            <p><b><u>Herding</u></b></p>
+            <p>Barn</p>
+            <p><b>Required Tech</b></p>
+            <p>Early Agriculture</p>
+            <p><h5>30 minutes</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-housing">
+            <p><b><u>Housing</u></b></p>
+            <p>Cabin</p>
+            <p><b>Required Tech</b></p>
+            <p>Early Agriculture</p>
+            <p><h5>30 minutes</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-iron-working">
+            <p><b><u>Iron Working</u></b></p>
+            <p>Diamond Tools</p>
+            <p>Iron Sword</p>
+            <p>Iron Armor</p>
+            <p>Iron Reinforced Bow</p>
+            <p><b>Required Tech</b></p>
+            <p>Knapping</p>
+            <p><h5>2 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-magic">
+            <p><b><u>Magic</u></b></p>
+            <p>Enchanter</p>
+            <p><b>Required Tech</b></p>
+            <p>Trading</p>
+            <p><h5>2 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-sifting">
+            <p><b><u>Sifting</u></b></p>
+            <p>Sifter</p>
+            <p><b>Required Tech</b></p>
+            <p>Herding</p>
+            <p><h5>2 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-early-distribution">
+            <p><b><u>Early Distribution</u></b></p>
+            <p>Longhouse</p>
+            <p><b>Required Tech</b></p>
+            <p>Housing</p>
+            <p><h5>2 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-diamond-working">
+            <p><b><u>Diamond Working</u></b></p>
+            <p>Diamond Sword</p>
+            <p>Diamond Armor</p>
+            <p>Diamond Reinforced Bow</p>
+            <p><b>Required Tech</b></p>
+            <p>Iron Working</p>
+            <p><h5>8 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-enhancing">
+            <p><b><u>Enhancing</u></b></p>
+            <p>Enhancer</p>
+            <p><b>Required Tech</b></p>
+            <p>Enchanting</p>
+            <p><h5>8 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-scouting">
+            <p><b><u>Scouting</u></b></p>
+            <p>Recon Tower</p>
+            <p><b>Required Tech</b></p>
+            <p>Sifting</p>
+            <p><h5>8 hours</h5></p>
+        </div>
+
+
+        <div class="tech  title-prehistoric tech-fortification">
+            <p><b><u>Fortification</u></b></p>
+            <p>Fort</p>
+            <p><b>Required Tech</b></p>
+            <p>Early Distribution</p>
+            <p><h5>8 hours</h5></p>
+        </div>
+
+        <div class="tech  title-prehistoric tech-agriculture">
+            <p><b><u>Agriculture</u></b></p>
+            <p>Civilization</p>
+            <p><b>Required Tech</b></p>
+            <p>Diamond Working</p>
+            <p>Enhancing</p>
+            <p>Scouting</p>
+            <p>Fortification</p>
+            <p></p>
+            <p></p>
+            <p><h5>54 hours</h5></p>
+            <p><h5>Penalties increase time</h5></p>
+            <p><h5>Civ Founding Points reduce time by up to 48 hours.</h5></p>
+            <p><h5>The quickest time to found a civ is 48 hours.</h5></p>
         </div>
 
         <div class="title title-ancient">
-            <b>Ancient Era | 3000 BC</b>
+            <p><b>Ancient Era | 3000 BC</b></p>
         </div>
 
-        <div class="title title-classical">
-            <b>Classical Era | 800 BC</b>
+        <div class="wonder tech tech-stonehenge">
+            <p><b><u>Stonehenge</u></b></p>
+            <p>Stonehenge</p>
+            <p><b>Required Tech</b></p>
+            <p>Advanced Agriculture</p>
+            <p>Milling</p>
+            <p>Religion</p>
+            <p><h5>15000 coins | 5000 beakers</h5></p>
         </div>
 
-        <div class="title title-medieval">
-            <b>Medieval Era | 400 AD</b>
+        <div class="wonder tech tech-temple-of-artemis">
+            <p><b><u>Temple of Artemis</u></b></p>
+            <p>Temple of Artemis</p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p>Mining</p>
+            <p>Written Laws</p>
+            <p><h5>25000 coins | 7500 beakers</h5></p>
         </div>
 
-        <div class="title title-renaissance">
-            <b>Renaissance Era | 1400 AD</b>
-        </div>
-
-        <div class="title title-industrial">
-            <b>Industrial Era | 1760 AD</b>
-        </div>
-
-        <div class="title title-information">
-            <b>Information Era | 1900 AD</b>
-        </div>
-
-        <div class="title title-artificial-intelligence">
-            <b>Artificial Intelligence Era | 2060 AD</b>
-        </div>
-
-        <div class="tech-religion">
+        <div class="tech  ancient-tech tech-religion">
             <p><b><u>Religion</u></b></p>
             <p>Monument</p>
             <p></p>
             <p></p>
-            <p>2500 coins | 500 beakers</p>
+            <p><h5>2500 coins | 500 beakers</h5></p>
         </div>
 
-        <div class="tech-armory">
+        <div class="tech ancient-tech tech-advanced-agriculture">
+            <p><b><u>Advanced Agriculture</u></b></p>
+            <p>Farm</p>
+            <p></p>
+            <p></p>
+            <p><h5>2500 coins | 500 beakers</h5></p>
+        </div>
+
+        <div class="tech ancient-tech tech-milling">
+            <p><b><u>Milling</u></b></p>
+            <p>Water Mill</p>
+            <p></p>
+            <p></p>
+            <p><h5>2500 coins | 500 beakers</h5></p>
+        </div>
+
+        <div class="tech ancient-tech tech-armory">
             <p><b><u>Armory</u></b></p>
             <p>Barracks</p>
-            <p></p>
-            <p></p>
-            <p>5000 coins | 625 beakers</p>
+            <p><b>Required Tech</b></p>
+            <p>Advanced Agriculture</p>
+            <p><h5>5000 coins | 625 beakers</h5></p>
         </div>
 
-        <div class="tech-mining">
+        <div class="tech ancient-tech tech-mining">
             <p><b><u>Mining</u></b></p>
             <p>Trommel</p>
             <p></p>
-            <p></p>
-            <p>5000 coins | 625 beakers</p>
+            <p><b>Required Tech</b></p>
+            <p>Milling</p>
+            <p><h5>5000 coins | 625 beakers</h5></p>
         </div>
 
-        <div class="tech-agriculture">
-            <p><b><u>Agriculture</u></b></p>
-            <p>Trommel</p>
+        <div class="tech  ancient-tech tech-written-laws">
+            <p><b><u>Written Laws</u></b></p>
+            <p>Bank</p>
             <p></p>
-            <p></p>
-            <p>5000 coins | 625 beakers</p>
+            <p><b>Required Tech</b></p>
+            <p>Religion</p>
+            <p><h5>5000 coins | 625 beakers</h5></p>
         </div>
 
-        <div class="tech-written-laws">
+        <div class="title title-classical">
+            <p><b>Classical Era | 800 BC</b></p>
+        </div>
+
+        <div class="tech classical-tech tech-leather-reinforcement">
+            <p><b><u>Leather Reinforcement</u></b></p>
+            <p>Reinforced Leather</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-archery">
+            <p><b><u>Archery</u></b></p>
+            <p>Hunting Bow</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-blacksmithing">
+            <p><b><u>Blacksmithing</u></b></p>
+            <p>Blacksmith</p>
+            <p>Chromite Armor</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-metal-casting">
+            <p><b><u>Metal Casting</u></b></p>
+            <p>Chromite Shortsword</p>
+            <p>Chromite Shield</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-guerilla">
+            <p><b><u>Guerilla</u></b></p>
+            <p>Chromite Shortaxe</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Armory</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-masonry">
+            <p><b><u>Masonry</u></b></p>
+            <p>Road</p>
+            <p>Scout Tower</p>
+            <p><b>Required Tech</b></p>
+            <p>Mining</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-productivity">
+            <p><b><u>Productivity</u></b></p>
+            <p>Mine</p>
+            <p>Library</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Mining</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-pottery">
+            <p><b><u>Pottery</u></b></p>
+            <p>Cottage</p>
+            <p></p>
+            <p><b>Required Tech</b></p>
+            <p>Mining</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-hunting">
+            <p><b><u>Hunting</u></b></p>
+            <p>Grocer</p>
+            <p>Pasture</p>
+            <p><b>Required Tech</b></p>
+            <p>Written Laws</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-code-of-laws">
+            <p><b><u>Code of Laws</u></b></p>
+            <p>Altar</p>
+            <p>Bank level 2</p>
+            <p>Hamlet</p>
+            <p><b>Required Tech</b></p>
+            <p>Written Laws</p>
+            <p><h5>10000 coins | 1875 beakers</h5></p>
+        </div>
+
+        <div class="tech classical-tech tech-brewing">
+            <p><b><u>Brewing</u></b></p>
+            <p>Healing Potion 1</p>
+            <p>Water Breathing Potion</p>
+            <p><b>Required Tech</b></p>
+            <p>Written Laws</p>
+            <p><h5>7500 coins | 1500 beakers</h5></p>
+        </div>
+
+        <div class="title title-medieval">
+            <p><b>Medieval Era | 400 AD</b></p>
+        </div>
+
+        <div class="title title-renaissance">
+            <p><b>Renaissance Era | 1400 AD</b></p>
+        </div>
+
+        <div class="title title-industrial">
+            <p><b>Industrial Era | 1760 AD</b></p>
+        </div>
+
+        <div class="title title-information">
+            <p><b>Information Era | 1900 AD</b></p>
+        </div>
+
+        <div class="title title-ai">
+            <p><b>Artificial Intelligence Era | 2060 AD</b></p>
+        </div>
+
+
+
+
+        <div class="tech tech-singularity">
             <p><b><u>Written Laws</u></b></p>
             <p>Bank</p>
             <p></p>
             <p></p>
             <p>5000 coins | 625 beakers</p>
         </div>
-
-
-        <div class="tech-singularity">
-            <p><b><u>Written Laws</u></b></p>
-            <p>Bank</p>
-            <p></p>
-            <p></p>
-            <p>5000 coins | 625 beakers</p>
-        </div>
-
+    </div>
 </body>
 </html>

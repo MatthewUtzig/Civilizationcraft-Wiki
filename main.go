@@ -29,6 +29,7 @@ func main()  {
 
 	route.HandleFunc("/", HomePage)
 	route.HandleFunc("/culture", CulturePage)
+	route.HandleFunc("/techtree", TechTreePage)
 
 	http.Handle("/", route)
 
@@ -47,6 +48,10 @@ func CulturePage(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w,"culture.gohtml", nil)
 }
 
+func TechTreePage(w http.ResponseWriter, r *http.Request) {
+	LoadTemplates()
+	tmpl.ExecuteTemplate(w,"techtree.gohtml", nil)
+}
 
 /*
 * Reloads templates if debug mode is on

@@ -6,4 +6,4 @@ RUN apk add build-base
 
 EXPOSE 80
 
-CMD ["go","run","app/main.go"]
+CMD ["go","run","main.go"]

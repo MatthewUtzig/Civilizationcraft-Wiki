@@ -34,7 +34,7 @@ func main()  {
 	http.Handle("/", route)
 
 	fmt.Println("Starting server")
-	log.Fatalln(http.ListenAndServe(":80", nil))
+	log.Fatalln(http.ListenAndServe(":443", "wiki.crt", "server.key", nil))
 }
 
 
